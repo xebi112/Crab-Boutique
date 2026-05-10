@@ -51,9 +51,12 @@ span {
 .nav-links a:hover {
   color: chocolate;
 }
-
+.small-screen-hero-mesg {
+  display: none;
+}
 .hero-section {
   padding: 20px;
+  padding-top: 90px;
   font-size: 1.2rem;
 }
 
@@ -121,12 +124,117 @@ span {
   transform: translateY(-3px) scale(1.08);
   box-shadow: 0 8px 20px rgba(183, 65, 14, 0.4);
 }
+/*HEARDER STYLING*/
+@media (max-width: 768px) {
+  .Header {
+    height: 60vh;
+  }
+  .nav-links {
+    display: none;
+  }
+  .logo-name {
+    font-family: "Roboto";
+    color: #ddd;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .menu-burger {
+    font-size: 1.5rem;
+    color: #d2691e;
+  }
+  .small-screen-logo-name {
+    font-size: 0.5rem;
+    color: red;
+  }
+  .small-screen-hero-mesg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+    font-family: "Roboto";
+    color: #d2691e;
+  }
+  .hero-mesg {
+    display: none;
+  }
+}
 
-.details {
+.details-container {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  margin-top: 10px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 20px;
+  background: #ffffff; /* Clean white background */
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin: 40px auto;
+  gap: 20px;
+}
+
+.details-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  background: #fdf8f3; /* Very soft cream */
+  color: #c5a059; /* Muted Gold */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(197, 160, 89, 0.1);
+}
+
+.details-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #888;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.value {
+  font-size: 1rem;
+  color: #222;
+  font-weight: 500;
+  margin: 0;
+}
+
+.status-value {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.status-value.open {
+  color: #27ae60; /* Classy Emerald Green */
+}
+
+.status-value.closed {
+  color: #e74c3c; /* Classy Deep Red */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .details-container {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+  }
 }
 .container {
   display: flex;
@@ -162,33 +270,83 @@ span {
   flex-direction: column;
   font-family: "Poppins";
 }
+.menu-table {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #fff;
+}
+
+.menu-header-area {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 .menu-head {
   font-size: 2.5rem;
-  text-align: center;
-  font-weight: bold;
+  font-family:
+    "Playfair Display", serif; /* Or any classy serif font you have */
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .menu-text {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  color: #e68506;
-  margin-bottom: 40px;
-  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  color: #c5a059; /* That Gold color again */
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
 .table-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: 1fr 1fr; /* Two clean columns */
+  column-gap: 60px;
+  row-gap: 20px;
 }
 
-.menu-column h3 {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
-  margin-top: 20px;
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0; /* The "Table" line */
+  transition: all 0.3s ease;
 }
 
+.menu-item:hover {
+  border-bottom: 1px solid #c5a059;
+  transform: translateX(5px);
+}
+
+.item-info h3 {
+  font-size: 1.1rem;
+  color: #222;
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+.item-info p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0;
+  font-style: italic;
+}
+
+.item-price {
+  color: #c5a059;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Mobile: Switch to 1 column so it doesn't look squashed */
+@media (max-width: 768px) {
+  .table-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .map-container {
   margin: 40px 0;
 }

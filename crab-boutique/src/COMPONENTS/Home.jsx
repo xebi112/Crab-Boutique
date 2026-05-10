@@ -29,7 +29,9 @@ function Home() {
           <p className="logo-name">
             🦀 <span>Crab</span> Boutique
           </p>
-
+          <div className="menu-burger">
+            <i className="fa-solid fa-bars"></i>
+          </div>
           <div className="nav-links">
             <Link to="/">Home</Link>
             <Link to="/menu">Menu</Link>
@@ -39,7 +41,13 @@ function Home() {
         </div>
 
         <section className="hero-section">
-          <div data-aos="zoom-in">
+          <div className="small-screen-hero-mesg">
+            <h1 className="small-screen-logo-name">
+              <span>Crab</span> Boutique
+            </h1>
+            <p>Accra-Ghana</p>
+          </div>
+          <div data-aos="zoom-in" className="hero-mesg">
             <p className="hero-location">Accra-Ghana</p>
             <h1>
               Delicious Meals,
@@ -59,17 +67,38 @@ function Home() {
         </section>
       </div>
 
-      <section className="details">
-        <p>
-          <i className="fas fa-map-marker-alt"></i> Address Kanfla Cl, Accra
-        </p>
-        <p>
-          <i className="fas fa-utensils"></i> Menu
-        </p>
-        <p>
-          <i className="fas fa-clock"></i> Opens 9am:
-          {openingTime() ? "Yes We're Open" : " We’re Closed 😴"}
-        </p>
+      <section className="details-container">
+        <div className="details-item">
+          <div className="icon-box">
+            <i className="fas fa-map-marker-alt"></i>
+          </div>
+          <div className="details-text">
+            <span className="label">Location</span>
+            <p className="value">Kanfla Cl, Accra</p>
+          </div>
+        </div>
+
+        <div className="details-item">
+          <div className="icon-box">
+            <i className="fas fa-utensils"></i>
+          </div>
+          <div className="details-text">
+            <span className="label">Experience</span>
+            <p className="value">Curated Menu</p>
+          </div>
+        </div>
+
+        <div className="details-item">
+          <div className="icon-box">
+            <i className="fas fa-clock"></i>
+          </div>
+          <div className="details-text">
+            <span className="label">Daily Hours</span>
+            <p className={`status-value ${openingTime() ? "open" : "closed"}`}>
+              {openingTime() ? "Currently Open" : "Closed until 9am"}
+            </p>
+          </div>
+        </div>
       </section>
 
       <main className="container">
@@ -126,64 +155,123 @@ function Home() {
 
         {/* Menu Table */}
         <div className="menu-table" data-aos="fade-up">
-          <p className="menu-head">The Menu</p>
-          <Link to="/menu" className="menu-text">
-            Check Out What We’ve Got &#10230;
-          </Link>
+          <div className="menu-header-area">
+            <p className="menu-head">The Menu</p>
+            <Link to="/menu" className="menu-text">
+              View Full Experience ⟶
+            </Link>
+          </div>
+
           <div className="table-grid">
-            <div className="menu-column">
-              <h3>Whole Spiced Crab</h3>
-              <p>House-cracked, ginger-chili butter, lime.</p>
-              <h3>Garlic Butter Shrimp</h3>
-              <p>Sautéed in premium herbs and garlic.</p>
+            {/* Item 1 */}
+            <div className="menu-item">
+              <div className="item-info">
+                <h3>Whole Spiced Crab</h3>
+                <p>House-cracked, ginger-chili butter, lime.</p>
+              </div>
+              <span className="item-price">GH₵ —</span>
             </div>
-            <div className="menu-column">
-              <h3>Lobster Thermidor</h3>
-              <p>Rich creamy brandy sauce with parmesan.</p>
-              <h3>Crab Cakes</h3>
-              <p>Jumbo lump crab with spicy remoulade.</p>
+
+            {/* Item 2 */}
+            <div className="menu-item">
+              <div className="item-info">
+                <h3>Garlic Butter Shrimp</h3>
+                <p>Sautéed in premium herbs and garlic.</p>
+              </div>
+              <span className="item-price">GH₵ —</span>
             </div>
-            <div className="menu-column">
-              <h3>Seafood Platter</h3>
-              <p>A mix of our best catches, grilled to perfection.</p>
-              <h3>Spicy Crab Soup</h3>
-              <p>Traditional recipe with a boutique twist.</p>
+
+            {/* Item 3 */}
+            <div className="menu-item">
+              <div className="item-info">
+                <h3>Lobster Thermidor</h3>
+                <p>Rich creamy brandy sauce with parmesan.</p>
+              </div>
+              <span className="item-price">GH₵ —</span>
+            </div>
+
+            {/* Item 4 */}
+            <div className="menu-item">
+              <div className="item-info">
+                <h3>Crab Cakes</h3>
+                <p>Jumbo lump crab with spicy remoulade.</p>
+              </div>
+              <span className="item-price">GH₵ —</span>
+            </div>
+
+            {/* Item 5 */}
+            <div className="menu-item">
+              <div className="item-info">
+                <h3>Seafood Platter</h3>
+                <p>A mix of our best catches, grilled to perfection.</p>
+              </div>
+              <span className="item-price">GH₵ —</span>
+            </div>
+
+            {/* Item 6 */}
+            <div className="menu-item">
+              <div className="item-info">
+                <h3>Spicy Crab Soup</h3>
+                <p>Traditional recipe with a boutique twist.</p>
+              </div>
+              <span className="item-price">GH₵ — 67</span>
             </div>
           </div>
         </div>
 
         <footer className="about-footer">
-          <p className="about-text">Find Us On The Map</p>
-          <div className="map-container" data-aos="zoom-in">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15895.798849460549!2d-1.28045335!3d5.111807999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sgh!4v1778118849518!5m2!1sen!2sgh"
-              width="100%"
-              height="350"
-              style={{ border: 0, borderRadius: "20px" }}
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
+          <div className="map-section">
+            <p className="about-text">Find Us On The Map</p>
+            <div className="map-container" data-aos="zoom-in">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.0123456789!2d-0.2012345!3d5.5612345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzMnNDAuNCJOIDDCsDEyJDA0LjQiVw!5e0!3m2!1sen!2sgh!4v1234567890"
+                width="100%"
+                height="350"
+                style={{ border: 0, borderRadius: "20px" }}
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
 
-          <p className="footer-mission">
-            At Crab Boutique, every meal is crafted with passion, freshness, and
-            unforgettable flavor.
-          </p>
+          <div className="footer-content">
+            <p className="footer-mission">
+              At <span>Crab Boutique</span>, every meal is crafted with passion,
+              freshness, and unforgettable flavor.
+            </p>
 
-          <section className="about-details">
-            <div>
-              <h5> 📍Location</h5>
-              <span>27 Kanfla close Asylum-Down</span>
+            <hr className="footer-divider" />
+
+            <section className="about-details">
+              <div className="footer-info-block">
+                <h5>
+                  <i className="fas fa-location-dot"></i> Location
+                </h5>
+                <span>27 Kanfla Close, Asylum-Down</span>
+              </div>
+
+              <div className="footer-info-block">
+                <h5>
+                  <i className="fas fa-phone-alt"></i> Call Us
+                </h5>
+                <span>+233 24 442 2614</span>
+              </div>
+
+              <div className="footer-info-block">
+                <h5>
+                  <i className="fas fa-envelope"></i> Email
+                </h5>
+                <span>crabboutique@gmail.com</span>
+              </div>
+            </section>
+
+            <div className="footer-bottom">
+              <p>
+                &copy; {new Date().getFullYear()} Crab Boutique. All Rights
+                Reserved.
+              </p>
             </div>
-            <div>
-              <h5>Call Us</h5>
-              <span>+233 24 442 2614</span>
-            </div>
-            <div>
-              <h5>Email</h5>
-              <span>crabboutique@gmail.com</span>
-            </div>
-          </section>
+          </div>
         </footer>
       </main>
     </>
