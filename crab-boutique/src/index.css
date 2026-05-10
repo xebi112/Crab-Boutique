@@ -172,6 +172,7 @@ span {
   border-bottom: 1px solid #eee;
   margin: 40px auto;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .details-item {
@@ -191,6 +192,9 @@ span {
   border-radius: 50%;
   font-size: 1.1rem;
   box-shadow: 0 4px 10px rgba(197, 160, 89, 0.1);
+}
+.star {
+  color: #c5a059; /* Muted Gold */
 }
 
 .details-text {
@@ -228,14 +232,43 @@ span {
   color: #e74c3c; /* Classy Deep Red */
 }
 
-/* Mobile Responsive */
+/* --- MOBILE RESPONSIVE (2x2 Grid) --- */
 @media (max-width: 768px) {
   .details-container {
+    display: grid;
+    /* This creates exactly 2 columns of equal width */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 10px; /* 20px vertical gap, 10px horizontal */
+    padding: 15px;
+  }
+
+  .details-item {
+    /* Keeps icon and text side-by-side even in the grid cell */
     display: flex;
-    flex-direction: row;
-    background-color: red;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Optional: Make the text a bit smaller so it fits the 2x2 grid better */
+  .details-text .value,
+  .status-value {
+    font-size: 13px;
+    white-space: normal; /* Allow text like "Closed until 9am" to wrap if needed */
   }
 }
+
+/* Extra small screens (optional) */
+@media (max-width: 360px) {
+  .details-container {
+    gap: 15px 5px;
+  }
+  .icon-box {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
+/*end*/
 .container {
   display: flex;
   flex-direction: column;
@@ -262,6 +295,34 @@ span {
   font-family: "Dancing Script";
   font-size: 4.5rem;
   color: #d2691e;
+}
+.text {
+  font-family: "Roboto", sans-serif;
+
+  /* SMART FONT SIZE: 
+     Stays between 1.1rem and 1.8rem based on screen width */
+  font-size: clamp(1.1rem, 2vw + 1rem, 1.8rem);
+
+  /* SMART WIDTH: 
+     Instead of 45%, we use max-width in 'ch' (characters).
+     60ch is the "Golden Rule" for professional readability. */
+  max-width: 60ch;
+  width: 90%; /* On mobile, it takes up most of the screen */
+
+  /* ORGANIZATION */
+  line-height: 1.6; /* Adds breathing room between lines */
+  color: #2d3436; /* Clean, deep grey (better than pure black) */
+  margin: 0 auto; /* Centers the text block if it has a container */
+  word-wrap: break-word; /* Prevents long words from breaking the layout */
+}
+
+/* Specific Tweak for your 2x2 Grid / Small Screens */
+@media (max-width: 600px) {
+  .text {
+    width: 100%; /* Uses full width on small phones */
+    text-align: left; /* Keeps it organized and easy to scan */
+    font-size: 1.1rem; /* Slightly smaller for tight spaces */
+  }
 }
 .story-text {
   display: flex;
