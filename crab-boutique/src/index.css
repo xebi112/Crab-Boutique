@@ -82,7 +82,9 @@ span {
   display: flex;
   gap: 30px;
 }
-
+.close-btn {
+  display: none;
+}
 .hero-order-btn {
   background-color: chocolate;
   color: #fff;
@@ -129,8 +131,32 @@ span {
   .Header {
     height: 60vh;
   }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+  }
   .nav-links {
+    flex-direction: column; /* Stack vertically */
+    position: absolute;
+    top: 80px; /* Adjust based on your header height */
+    left: 0;
+    width: 100%;
+    background-color: rgba(236, 97, 4, 0.9); /* Dark background to see links */
+    padding: 2rem;
+    gap: 20px;
+    text-align: center;
+    z-index: 100; /* Make sure it's on top of images */
+  }
+  .nav-links.active {
     display: none;
+  }
+
+  .close-btn {
+    display: flex;
+    color: rgba(236, 97, 4, 0.9);
   }
   .logo-name {
     font-family: "Roboto";
@@ -145,8 +171,12 @@ span {
     color: #d2691e;
   }
   .small-screen-logo-name {
-    font-size: 0.5rem;
-    color: red;
+    font-size: 2.2rem;
+    font-family: "Dancing Script" !important; /* !important forces React to prioritize this */
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
   }
   .small-screen-hero-mesg {
     display: flex;
@@ -268,6 +298,7 @@ span {
     font-size: 0.9rem;
   }
 }
+
 /*end*/
 .container {
   display: flex;
@@ -290,10 +321,12 @@ span {
 }
 .img-right img {
   width: 40%;
+  border-radius: 12px;
 }
+
 .sub-text {
   font-family: "Dancing Script";
-  font-size: 4.5rem;
+  font-size: 2.5rem;
   color: #d2691e;
 }
 .text {
@@ -329,7 +362,6 @@ span {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Poppins";
 }
 .menu-table {
   max-width: 1000px;
@@ -435,6 +467,7 @@ span {
   }
   .img-left,
   .img-right {
+    flex-direction: column;
     align-items: center;
     text-align: center;
   }

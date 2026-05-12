@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -22,6 +22,14 @@ function Home() {
 
     return hour >= 9 && hour < 20;
   }
+  //use state for togle
+  const [isOpen, setIsOpen] = useState(false);
+
+  // toggle function
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <div className="Header">
@@ -29,10 +37,21 @@ function Home() {
           <p className="logo-name">
             🦀 <span>Crab</span> Boutique
           </p>
-          <div className="menu-burger">
-            <i className="fa-solid fa-bars"></i>
+          <div className="toggle-menus">
+            {/* 3. Logic: If NOT open, show Burger. If open, show Times (X) */}
+            {!isOpen ? (
+              <div className="menu-burger" onClick={toggleMenu}>
+                <i className="fa-solid fa-bars"></i>
+              </div>
+            ) : (
+              <div className="close-btn" onClick={toggleMenu}>
+                <i className="fas fa-times"></i>
+              </div>
+            )}
           </div>
-          <div className="nav-links">
+
+          {/* 4. Links show only when isOpen is true */}
+          <div className={`nav-links ${isOpen ? "active" : ""}`}>
             <Link to="/">Home</Link>
             <Link to="/menu">Menu</Link>
             <Link to="/about">About Us</Link>
@@ -250,11 +269,6 @@ function Home() {
           </div>
 
           <div className="footer-content">
-            <p className="footer-mission">
-              At <span>Crab Boutique</span>, every meal is crafted with passion,
-              freshness, and unforgettable flavor.
-            </p>
-
             <hr className="footer-divider" />
 
             <section className="about-details">
