@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -53,8 +54,12 @@ function Home() {
           {/* 4. Links show only when isOpen is true */}
           <div className={`nav-links ${isOpen ? "active" : ""}`}>
             <Link to="/">Home</Link>
-            <Link to="/menu">Menu</Link>
-            <Link to="/about">About Us</Link>
+            <ScrollLink to="menu" smooth={true} duration={500}>
+              Menu
+            </ScrollLink>
+            <ScrollLink to="about" smooth={true} duration={300}>
+              About Us
+            </ScrollLink>
             <Link to="/contact">Contact</Link>
           </div>
         </div>
@@ -65,6 +70,9 @@ function Home() {
               <span>Crab</span> Boutique
             </h1>
             <p>Accra-Ghana</p>
+            <Link to="/" className="view-btn">
+              View via Whatsapp ⟶
+            </Link>
           </div>
           <div data-aos="zoom-in" className="hero-mesg">
             <p className="hero-location">Accra-Ghana</p>
@@ -190,7 +198,9 @@ function Home() {
         {/* Menu Table */}
         <div className="menu-table" data-aos="fade-up">
           <div className="menu-header-area">
-            <p className="menu-head">The Menu</p>
+            <p className="menu-head" id="menu">
+              The Menu
+            </p>
             <Link to="/menu" className="menu-text">
               View Full Experience ⟶
             </Link>
@@ -253,7 +263,7 @@ function Home() {
           </div>
         </div>
 
-        <footer className="about-footer">
+        <footer className="about-footer" id="about">
           <div className="map-section">
             <p className="about-text">Find Us On The Map</p>
             <div className="map-container" data-aos="zoom-in">

@@ -129,14 +129,14 @@ span {
 /*HEARDER STYLING*/
 @media (max-width: 768px) {
   .Header {
-    height: 60vh;
+    height: 65vh;
+    width: 100%;
   }
 
   .head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
   }
   .nav-links {
     flex-direction: column; /* Stack vertically */
@@ -171,7 +171,7 @@ span {
     color: #d2691e;
   }
   .small-screen-logo-name {
-    font-size: 2.2rem;
+    font-size: 2vw;
     font-family: "Dancing Script" !important; /* !important forces React to prioritize this */
     font-weight: 800;
     letter-spacing: 1px;
@@ -189,6 +189,13 @@ span {
   }
   .hero-mesg {
     display: none;
+  }
+  .view-btn {
+    color: #f0eeee;
+    font-size: 3vw;
+    line-height: 2;
+    cursor: pointer;
+    text-decoration: none;
   }
 }
 
@@ -331,31 +338,27 @@ span {
 }
 .text {
   font-family: "Roboto", sans-serif;
-
-  /* SMART FONT SIZE: 
-     Stays between 1.1rem and 1.8rem based on screen width */
-  font-size: clamp(1.1rem, 2vw + 1rem, 1.8rem);
-
-  /* SMART WIDTH: 
-     Instead of 45%, we use max-width in 'ch' (characters).
-     60ch is the "Golden Rule" for professional readability. */
+  font-size: 2vw;
   max-width: 60ch;
-  width: 90%; /* On mobile, it takes up most of the screen */
-
-  /* ORGANIZATION */
-  line-height: 1.6; /* Adds breathing room between lines */
-  color: #2d3436; /* Clean, deep grey (better than pure black) */
-  margin: 0 auto; /* Centers the text block if it has a container */
-  word-wrap: break-word; /* Prevents long words from breaking the layout */
+  width: 90%;
+  line-height: 1.6;
+  color: #2d3436;
+  margin: 0 auto;
+  word-wrap: break-word;
 }
 
-/* Specific Tweak for your 2x2 Grid / Small Screens */
+/* Specific Tweak for 2x2 Grid / Small Screens */
 @media (max-width: 600px) {
   .text {
-    width: 100%; /* Uses full width on small phones */
-    text-align: left; /* Keeps it organized and easy to scan */
-    font-size: 1.1rem; /* Slightly smaller for tight spaces */
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
   }
+}
+.img-left img {
+  width: 100%;
+  margin: 20px;
+  border-radius: 12px;
 }
 .story-text {
   display: flex;
