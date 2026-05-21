@@ -42,17 +42,17 @@ function Home() {
             {/* 3. Logic: If NOT open, show Burger. If open, show Times (X) */}
             {!isOpen ? (
               <div className="menu-burger" onClick={toggleMenu}>
-                <i className="fa-solid fa-bars"></i>
+                <i className="fas fa-bars"></i>
               </div>
             ) : (
               <div className="close-btn" onClick={toggleMenu}>
-                <i className="fas fa-times"></i>
+                <i className="fa-solid fa-times"></i>
               </div>
             )}
           </div>
 
           {/* 4. Links show only when isOpen is true */}
-          <div className={`nav-links ${isOpen ? "active" : ""}`}>
+          <div className={`nav-links ${isOpen ? "" : "active"}`}>
             <Link to="/">Home</Link>
             <ScrollLink to="menu" smooth={true} duration={500}>
               Menu
@@ -88,7 +88,7 @@ function Home() {
             </p>
             <div className="btns">
               <button className="hero-order-btn">View Menu via Whatsapp</button>
-              <button className="hero-order-num">Call Us:024 442 2614</button>
+              <button className="hero-order-num">Call Us: 024 336 2609</button>
             </div>
           </div>
         </section>
@@ -145,7 +145,7 @@ function Home() {
 
       <main className="container">
         {/* Story Section 1 - Left */}
-        <div className="img-left" data-aos="fade-right">
+        <div className="img-left">
           <img src="img-3.jpeg" alt="Togetherness" />
           <div className="story-text">
             <h3 className="sub-text">At Crab Boutique,</h3>
@@ -158,7 +158,7 @@ function Home() {
         </div>
 
         {/* Story Section 2 - Right */}
-        <div className=" img-right" data-aos="fade-left">
+        <div className=" img-right">
           <img src="img-4.jpeg" alt="Freshness" />
           <div className="story-text">
             <h3 className="sub-text">From the ocean’s depth to your plate,</h3>
@@ -170,7 +170,7 @@ function Home() {
         </div>
 
         {/* Story Section 3 - Left */}
-        <div className=" img-left" data-aos="fade-right">
+        <div className=" img-left">
           <img src="img-5.jpeg" alt="Artistry" />
           <div className="story-text">
             <h3 className="sub-text">Boutique Creations</h3>
@@ -182,7 +182,7 @@ function Home() {
         </div>
 
         {/* Story Section 4 - Right */}
-        <div className=" img-right" data-aos="fade-left">
+        <div className=" img-right">
           <img src="img-6.jpeg" alt="Connection" />
           <div className="story-text">
             <h3 className="sub-text">An experience of connection.</h3>
@@ -196,7 +196,7 @@ function Home() {
         <hr className="section-divider" />
 
         {/* Menu Table */}
-        <div className="menu-table" data-aos="fade-up">
+        <div className="menu-table">
           <div className="menu-header-area">
             <p className="menu-head" id="menu">
               The Menu
