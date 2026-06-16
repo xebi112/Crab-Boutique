@@ -11,18 +11,26 @@ function Home() {
       once: false,
     });
   }, []);
+
   function openingTime() {
     // Forces the hour to be calculated based on Accra, Ghana time
     const ghanaTime = new Intl.DateTimeFormat("en-GB", {
-      hour: "numeric",
+      hour: "numeric", //ask js for only the hour forgets the minand sec
+      weekday: "long", //gives us the day frm 0-6 monday to sunday
       hour12: false,
       timeZone: "Africa/Accra",
     }).format(new Date());
 
-    const hour = parseInt(ghanaTime);
+    const [daystring, timestring] = ghanaTime.split(", ");
+    const hour = parseInt(timestring, 10); //turns the string hour into a number
 
-    return hour >= 9 && hour < 20;
+    if (daystring === "Monday") {
+      return "MONDAY_CLOSED";
+    }
+
+    return hour >= 9 && hour < 20; // if the number is >=9 and less dan 8:00 its open or close
   }
+  const shopStatus = openingTime();
   //use state for togle
   const [isOpen, setIsOpen] = useState(false);
 
@@ -69,10 +77,16 @@ function Home() {
             <h1 className="small-screen-logo-name">
               <span>Crab</span> Boutique
             </h1>
-            <p>Accra-Ghana</p>
-            <Link to="/" className="view-btn">
-              View via Whatsapp ⟶
-            </Link>
+            <p className="small-screen-hero-submesg">
+              For orders call
+              <span>0244422614/0559646474 </span> Tues- Sunday.9am-10pm
+            </p>
+            <div className="header-location">
+              <p>Accra-Ghana</p>
+              <Link to="/" className="view-btn">
+                View via Whatsapp ⟶
+              </Link>
+            </div>
           </div>
           <div data-aos="zoom-in" className="hero-mesg">
             <p className="hero-location">Accra-Ghana</p>
@@ -87,8 +101,9 @@ function Home() {
               experience you'll love.
             </p>
             <div className="btns">
-              <button className="hero-order-btn">View Menu via Whatsapp</button>
-              <button className="hero-order-num">Call Us: 024 336 2609</button>
+              <button className="hero-order-btn">
+                View Menu via Whatsapp &rarr;
+              </button>
             </div>
           </div>
         </section>
@@ -136,8 +151,14 @@ function Home() {
           </div>
           <div className="details-text">
             <span className="label">Daily Hours</span>
-            <p className={`status-value ${openingTime() ? "open" : "closed"}`}>
-              {openingTime() ? "Currently Open" : "Closed until 9am"}
+            <p
+              className={`status-value ${shopStatus === true ? "open" : "closed"}`}
+            >
+              {shopStatus === "MONDAY_CLOSED"
+                ? "Sorry,We are not open on Mondays"
+                : shopStatus
+                  ? "OPEN"
+                  : "CLOSED UNTIL 9AM"}
             </p>
           </div>
         </div>
@@ -145,7 +166,7 @@ function Home() {
 
       <main className="container">
         {/* Story Section 1 - Left */}
-        <div className="img-left">
+        <div className="img-left" data-aos="fade-right">
           <img src="img-3.jpeg" alt="Togetherness" />
           <div className="story-text">
             <h3 className="sub-text">At Crab Boutique,</h3>
@@ -158,7 +179,7 @@ function Home() {
         </div>
 
         {/* Story Section 2 - Right */}
-        <div className=" img-right">
+        <div className=" img-right" data-aos="fade-left">
           <img src="img-4.jpeg" alt="Freshness" />
           <div className="story-text">
             <h3 className="sub-text">From the ocean’s depth to your plate,</h3>

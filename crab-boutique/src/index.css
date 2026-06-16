@@ -19,7 +19,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 98vh;
 }
 
 .head {
@@ -51,7 +51,6 @@ span {
   text-decoration: none;
   color: #fff;
 }
-
 .nav-links a:hover {
   color: chocolate;
 }
@@ -84,17 +83,18 @@ span {
 
 .btns {
   display: flex;
-  gap: 30px;
 }
 .close-btn {
   display: none;
 }
 .hero-order-btn {
-  background-color: chocolate;
+  position: absolute;
+  bottom: -23%;
+  background-color: rgb(230, 106, 18);
   color: #fff;
-  padding: 16px 24px;
-  border-radius: 50px;
-  border: 2px solid rgb(226, 140, 12);
+  padding: 14px 14px;
+  border-radius: 15px;
+  border: 0;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
@@ -110,26 +110,6 @@ span {
   border-color: #fff;
 }
 
-.hero-order-num {
-  border: 2px solid #8b8a89;
-  background: rgba(228, 221, 217, 0.08);
-  backdrop-filter: blur(8px);
-  padding: 16px 24px;
-  border-radius: 20px;
-  color: #f3ecec;
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.35s ease;
-}
-
-.hero-order-num:hover {
-  background: linear-gradient(135deg, #b4b1b0, #ff5722);
-  color: #fff;
-  border-color: #7c7a79;
-  transform: translateY(-3px) scale(1.08);
-  box-shadow: 0 8px 20px rgba(183, 65, 14, 0.4);
-}
 /*HEARDER STYLING*/
 @media (max-width: 768px) {
   .Header {
@@ -157,7 +137,6 @@ span {
   .nav-links.active {
     display: none;
   }
-
   .close-btn {
     display: flex;
     color: rgba(236, 97, 4, 0.9);
@@ -191,6 +170,23 @@ span {
     font-family: "Roboto";
     color: #d2691e;
   }
+  .small-screen-hero-submesg {
+    color: #ffffff;
+    font-family: "Cormorant", serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: 1px;
+
+    padding: 8px 2px;
+  }
+  .header-location {
+    margin-top: 10%;
+  }
+  .header-location p {
+    text-align: center;
+  }
   .hero-mesg {
     display: none;
   }
@@ -202,30 +198,30 @@ span {
     text-decoration: none;
   }
 }
-
 .details-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 40px 20px;
-  background-color: #3b2a1f; /* Clean white background */
+  background-color: #301402bd; /* Clean white background */
   border-top: 1px solid #313030;
   border-bottom: 1px solid #242322;
   margin: 0 auto;
   gap: 20px;
   flex-wrap: wrap;
 }
-
 .details-item {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .icon-box {
   width: 45px;
   height: 45px;
-  background: #e4770b; /* Very soft cream */
+  background: #e0530d; /* Very soft cream */
   color: #f8f7f5; /* Muted Gold */
   display: flex;
   justify-content: center;
@@ -233,6 +229,11 @@ span {
   border-radius: 50%;
   font-size: 1.1rem;
   box-shadow: 0 4px 10px rgba(197, 160, 89, 0.1);
+  transition: all 0.3s ease;
+}
+.icon-box:hover {
+  transform: rotate(2deg) scale(1.1); /* tilt + zoom */
+  color: #f3f0ed; /* golden highlight */
 }
 .star {
   color: #ffffff; /* Muted Gold */
@@ -270,7 +271,7 @@ span {
 }
 
 .status-value.closed {
-  color: #000000; /* Classy Deep Red */
+  color: #ff0000; /* Classy Deep Red */
 }
 
 /* --- MOBILE RESPONSIVE (2x2 Grid) --- */
@@ -486,7 +487,7 @@ span {
 .about-details h5 {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: #ff6b00;
+  color: #eeeeee;
 }
 
 @media (max-width: 768px) {
