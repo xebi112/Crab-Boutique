@@ -8,7 +8,7 @@ function Home() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: false,
+      once: true,
     });
   }, []);
 
@@ -74,12 +74,15 @@ function Home() {
 
         <section className="hero-section">
           <div className="small-screen-hero-mesg">
-            <h1 className="small-screen-logo-name">
-              <span>Crab</span> Boutique
-            </h1>
+            <p className="small-screen-logo-name">
+              Freshly Made,
+              <br />
+              Sea Food and Crab Restaurant
+            </p>
             <p className="small-screen-hero-submesg">
               For orders call
-              <span>0244422614/0559646474 </span> Tues- Sunday.9am-10pm
+              <span>0244422614/0559646474 </span> <span>Opening Hours:</span>
+              Tues- Sunday.9am-10pm
             </p>
             <div className="header-location">
               <p>Accra-Ghana</p>
@@ -91,9 +94,9 @@ function Home() {
           <div data-aos="zoom-in" className="hero-mesg">
             <p className="hero-location">Accra-Ghana</p>
             <h1>
-              Delicious Meals,
+              Freshly <span>Made </span>,
               <br />
-              <span>Made </span> for You
+              Sea Food and Crab
             </h1>
             <p className="hero-sub">
               Fresh ingredients <span>unique</span> flavours and
@@ -157,7 +160,7 @@ function Home() {
               {shopStatus === "MONDAY_CLOSED"
                 ? "Sorry,We are not open on Mondays"
                 : shopStatus
-                  ? "OPEN"
+                  ? " WE ARE OPEN"
                   : "CLOSED UNTIL 9AM"}
             </p>
           </div>
@@ -292,7 +295,7 @@ function Home() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.0123456789!2d-0.2012345!3d5.5612345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzMnNDAuNCJOIDDCsDEyJDA0LjQiVw!5e0!3m2!1sen!2sgh!4v1234567890"
                 width="100%"
                 height="350"
-                style={{ border: 0, borderRadius: "20px" }}
+                style={{ border: 0, borderRadius: "2px" }}
                 allowFullScreen
                 loading="lazy"
               ></iframe>
