@@ -110,10 +110,20 @@ span {
   border-color: #fff;
 }
 
+.story {
+  font-family: "Dancing Script", serif;
+  font-size: 4.5rem;
+  text-align: center;
+  flex: 1; /* text takes remaining space */
+  margin: 0;
+  font-weight: 700;
+  color: #fff; /* white text for contrast */
+}
+
 /*HEARDER STYLING*/
 @media (max-width: 768px) {
   .Header {
-    height: 65vh;
+    height: 55vh;
     width: 100%;
   }
 
@@ -210,7 +220,7 @@ span {
   justify-content: space-around;
   align-items: center;
   padding: 40px 20px;
-  background-color: #301402bd; /* Clean white background */
+  background-color: #31190bce; /* Clean white background */
   border-top: 1px solid #313030;
   border-bottom: 1px solid #242322;
   margin: 0 auto;
@@ -322,12 +332,14 @@ span {
   display: flex;
   flex-direction: column;
   gap: 120px;
+  margin-top: 20px;
 }
 .img-left {
   display: flex;
   gap: 30px;
 }
 .img-left img {
+  margin-top: 90px;
   width: 40%;
   margin: 20px;
   border-radius: 12px;

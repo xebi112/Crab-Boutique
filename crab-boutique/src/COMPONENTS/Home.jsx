@@ -8,7 +8,7 @@ function Home() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true,
+      once: false,
     });
   }, []);
 
@@ -168,7 +168,9 @@ function Home() {
       </section>
 
       <main className="container">
-        {/* Story Section 1 - Left */}
+        <div>
+          <p className="story">OUR STORY</p>
+        </div>
         <div className="img-left" data-aos="fade-right">
           <img src="img-3.jpeg" alt="Togetherness" />
           <div className="story-text">
@@ -194,7 +196,7 @@ function Home() {
         </div>
 
         {/* Story Section 3 - Left */}
-        <div className=" img-left">
+        <div className=" img-left" data-aos="fade-right">
           <img src="img-5.jpeg" alt="Artistry" />
           <div className="story-text">
             <h3 className="sub-text">Boutique Creations</h3>
