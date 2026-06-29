@@ -9,6 +9,8 @@ function Home() {
     AOS.init({
       duration: 1000,
       once: false,
+      debounceDelay: 50,
+      throttleDelay: 99,
     });
   }, []);
 
@@ -61,14 +63,23 @@ function Home() {
 
           {/* 4. Links show only when isOpen is true */}
           <div className={`nav-links ${isOpen ? "" : "active"}`}>
-            <Link to="/">Home</Link>
+            <Link to="/" className="home-img">
+              Home
+            </Link>
             <ScrollLink to="menu" smooth={true} duration={500}>
               Menu
             </ScrollLink>
-            <ScrollLink to="about" smooth={true} duration={300}>
+            <ScrollLink
+              to="about"
+              smooth={true}
+              className="about-img"
+              duration={300}
+            >
               About Us
             </ScrollLink>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact" className="contact-img">
+              Contact
+            </Link>
           </div>
         </div>
 
@@ -79,15 +90,11 @@ function Home() {
               <br />
               Sea Food and Crab Restaurant
             </p>
-            <p className="small-screen-hero-submesg">
-              For orders call
-              <span>0244422614/0559646474 </span> <span>Opening Hours:</span>
-              Tues- Sunday.9am-10pm
-            </p>
+
             <div className="header-location">
               <p>Accra-Ghana</p>
               <Link to="/" className="view-btn">
-                View via Whatsapp ⟶
+                Explore Our Menu ⟶
               </Link>
             </div>
           </div>
@@ -96,7 +103,7 @@ function Home() {
             <h1>
               Freshly <span>Made </span>,
               <br />
-              Sea Food and Crab
+              SeaFood and Crab
             </h1>
             <p className="hero-sub">
               Fresh ingredients <span>unique</span> flavours and
@@ -105,7 +112,7 @@ function Home() {
             </p>
             <div className="btns">
               <button className="hero-order-btn">
-                View Menu via Whatsapp &rarr;
+                Explore Our Menu &rarr;
               </button>
             </div>
           </div>
@@ -176,9 +183,9 @@ function Home() {
           <div className="story-text">
             <h3 className="sub-text">At Crab Boutique,</h3>
             <p className="text">
-              Every table is more than a place to eat — it’s where friendships
+              Every table is more than a place to eat it’s where friendships
               grow, laughter fills the air, and games turn into memories. Each
-              crab dish is part of the fun.
+              dish is part of the fun.
             </p>
           </div>
         </div>
@@ -207,8 +214,8 @@ function Home() {
           </div>
         </div>
 
-        {/* Story Section 4 - Right */}
-        <div className=" img-right">
+        {/* Story Section 4 - Righ t */}
+        <div className="img-right">
           <img src="img-6.jpeg" alt="Connection" />
           <div className="story-text">
             <h3 className="sub-text">An experience of connection.</h3>
@@ -236,51 +243,57 @@ function Home() {
             {/* Item 1 */}
             <div className="menu-item">
               <div className="item-info">
+                <img src="homebg.jpeg" className="menu-img" />
                 <h3>Whole Spiced Crab</h3>
                 <p>House-cracked, ginger-chili butter, lime.</p>
               </div>
-              <span className="item-price">GH₵ —</span>
+              <span className="item-price">GH₵ — 200</span>
             </div>
 
             {/* Item 2 */}
             <div className="menu-item">
               <div className="item-info">
+                <img src="homebg.jpeg" className="menu-img" />
                 <h3>Garlic Butter Shrimp</h3>
                 <p>Sautéed in premium herbs and garlic.</p>
               </div>
-              <span className="item-price">GH₵ —</span>
+              <span className="item-price">GH₵ — 150</span>
             </div>
 
             {/* Item 3 */}
             <div className="menu-item">
               <div className="item-info">
+                <img src="homebg.jpeg" className="menu-img" />
                 <h3>Lobster Thermidor</h3>
                 <p>Rich creamy brandy sauce with parmesan.</p>
               </div>
-              <span className="item-price">GH₵ —</span>
+              <span className="item-price">GH₵ —100</span>
             </div>
 
             {/* Item 4 */}
             <div className="menu-item">
               <div className="item-info">
+                <img src="homebg.jpeg" className="menu-img" />
                 <h3>Crab Cakes</h3>
                 <p>Jumbo lump crab with spicy remoulade.</p>
               </div>
-              <span className="item-price">GH₵ —</span>
+              <span className="item-price">GH₵ —250</span>
             </div>
 
             {/* Item 5 */}
             <div className="menu-item">
               <div className="item-info">
+                <img src="homebg.jpeg" className="menu-img" />
                 <h3>Seafood Platter</h3>
                 <p>A mix of our best catches, grilled to perfection.</p>
               </div>
-              <span className="item-price">GH₵ —</span>
+              <span className="item-price">GH₵ —120</span>
             </div>
 
             {/* Item 6 */}
             <div className="menu-item">
               <div className="item-info">
+                <img src="homebg.jpeg" className="menu-img" />
                 <h3>Spicy Crab Soup</h3>
                 <p>Traditional recipe with a boutique twist.</p>
               </div>
@@ -317,7 +330,7 @@ function Home() {
 
               <div className="footer-info-block">
                 <h5>
-                  <i className="fas fa-phone-alt"></i> Call Us
+                  <i className="fas fa-phone-alt"></i>For Orders Call Us
                 </h5>
                 <span>+233 24 442 2614</span>
               </div>
