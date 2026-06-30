@@ -5,6 +5,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function Home() {
+  // Use state to detect if the user has scrolled down the page
+  const [isSticky, setIsSticky] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -12,44 +16,62 @@ function Home() {
       debounceDelay: 50,
       throttleDelay: 99,
     });
+
+    // Function to handle scroll and check window positioning
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up event listener when component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   function openingTime() {
-    // Forces the hour to be calculated based on Accra, Ghana time
     const ghanaTime = new Intl.DateTimeFormat("en-GB", {
-      hour: "numeric", //ask js for only the hour forgets the minand sec
-      weekday: "long", //gives us the day frm 0-6 monday to sunday
+      hour: "numeric",
+      weekday: "long",
       hour12: false,
       timeZone: "Africa/Accra",
     }).format(new Date());
 
-    const [daystring, timestring] = ghanaTime.split(", ");
-    const hour = parseInt(timestring, 10); //turns the string hour into a number
+    // Fix: Clean up formatting variables across execution runtime environments
+    const cleanTime = ghanaTime.replace(",", "");
+    const parts = cleanTime.split(" ");
+    const daystring = parts[0];
+    const hour = parseInt(parts[1], 10);
 
     if (daystring === "Monday") {
       return "MONDAY_CLOSED";
     }
 
-    return hour >= 9 && hour < 20; // if the number is >=9 and less dan 8:00 its open or close
+    return hour >= 9 && hour < 20;
   }
-  const shopStatus = openingTime();
-  //use state for togle
-  const [isOpen, setIsOpen] = useState(false);
 
-  // toggle function
+  const shopStatus = openingTime();
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <>
-      <div className="Header">
+      {/* The outermost head wrapper changes state based on window position. 
+        Applying the sticky class conditionally injects the structural fix.
+      */}
+      <div className={`Header ${isSticky ? "sticky" : ""}`}>
         <div className="head">
           <p className="logo-name">
             🦀 <span>Crab</span> Boutique
           </p>
           <div className="toggle-menus">
-            {/* 3. Logic: If NOT open, show Burger. If open, show Times (X) */}
             {!isOpen ? (
               <div className="menu-burger" onClick={toggleMenu}>
                 <i className="fas fa-bars"></i>
@@ -61,23 +83,32 @@ function Home() {
             )}
           </div>
 
-          {/* 4. Links show only when isOpen is true */}
-          <div className={`nav-links ${isOpen ? "" : "active"}`}>
-            <Link to="/" className="home-img">
+          {/* Logic Fix: Ensures links are conditionally modified when active state is true */}
+          <div className={`nav-links ${isOpen ? "active" : ""}`}>
+            <Link to="/" className="home-img" onClick={() => setIsOpen(false)}>
               Home
             </Link>
-            <ScrollLink to="menu" smooth={true} duration={500}>
+            <ScrollLink
+              to="menu"
+              smooth={true}
+              duration={500}
+              onClick={() => setIsOpen(false)}
+            >
               Menu
             </ScrollLink>
             <ScrollLink
               to="about"
               smooth={true}
-              className="about-img"
               duration={300}
+              onClick={() => setIsOpen(false)}
             >
               About Us
             </ScrollLink>
-            <Link to="/contact" className="contact-img">
+            <Link
+              to="/contact"
+              className="contact-img"
+              onClick={() => setIsOpen(false)}
+            >
               Contact
             </Link>
           </div>
@@ -111,9 +142,7 @@ function Home() {
               experience you'll love.
             </p>
             <div className="btns">
-              <button className="hero-order-btn">
-                Explore Our Menu &rarr;
-              </button>
+              <button className="hero-order-btn">Explore Our Menu →</button>
             </div>
           </div>
         </section>
@@ -165,7 +194,7 @@ function Home() {
               className={`status-value ${shopStatus === true ? "open" : "closed"}`}
             >
               {shopStatus === "MONDAY_CLOSED"
-                ? "Sorry,We are not open on Mondays"
+                ? "Sorry, We are not open on Mondays"
                 : shopStatus
                   ? " WE ARE OPEN"
                   : "CLOSED UNTIL 9AM"}
@@ -190,8 +219,7 @@ function Home() {
           </div>
         </div>
 
-        {/* Story Section 2 - Right */}
-        <div className=" img-right" data-aos="fade-left">
+        <div className="img-right" data-aos="fade-left">
           <img src="img-4.jpeg" alt="Freshness" />
           <div className="story-text">
             <h3 className="sub-text">From the ocean’s depth to your plate,</h3>
@@ -202,8 +230,7 @@ function Home() {
           </div>
         </div>
 
-        {/* Story Section 3 - Left */}
-        <div className=" img-left" data-aos="fade-right">
+        <div className="img-left" data-aos="fade-right">
           <img src="img-5.jpeg" alt="Artistry" />
           <div className="story-text">
             <h3 className="sub-text">Boutique Creations</h3>
@@ -214,7 +241,6 @@ function Home() {
           </div>
         </div>
 
-        {/* Story Section 4 - Righ t */}
         <div className="img-right">
           <img src="img-6.jpeg" alt="Connection" />
           <div className="story-text">
@@ -228,76 +254,67 @@ function Home() {
 
         <hr className="section-divider" />
 
-        {/* Menu Table */}
-        <div className="menu-table">
+        <div className="menu-table" id="menu">
           <div className="menu-header-area">
-            <p className="menu-head" id="menu">
-              The Menu
-            </p>
+            <p className="menu-head">our Menu</p>
             <Link to="/menu" className="menu-text">
               View Full Experience ⟶
             </Link>
           </div>
 
           <div className="table-grid">
-            {/* Item 1 */}
             <div className="menu-item">
               <div className="item-info">
-                <img src="homebg.jpeg" className="menu-img" />
+                <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Whole Spiced Crab</h3>
                 <p>House-cracked, ginger-chili butter, lime.</p>
+                <span className="item-price">GH₵ — 200</span>
               </div>
-              <span className="item-price">GH₵ — 200</span>
             </div>
 
-            {/* Item 2 */}
             <div className="menu-item">
               <div className="item-info">
-                <img src="homebg.jpeg" className="menu-img" />
+                <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Garlic Butter Shrimp</h3>
                 <p>Sautéed in premium herbs and garlic.</p>
+                <span className="item-price">GH₵ — 150</span>
               </div>
-              <span className="item-price">GH₵ — 150</span>
             </div>
 
-            {/* Item 3 */}
             <div className="menu-item">
               <div className="item-info">
-                <img src="homebg.jpeg" className="menu-img" />
+                <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Lobster Thermidor</h3>
                 <p>Rich creamy brandy sauce with parmesan.</p>
+                <span className="item-price">GH₵ —100</span>
               </div>
-              <span className="item-price">GH₵ —100</span>
             </div>
 
-            {/* Item 4 */}
             <div className="menu-item">
               <div className="item-info">
-                <img src="homebg.jpeg" className="menu-img" />
+                <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Crab Cakes</h3>
                 <p>Jumbo lump crab with spicy remoulade.</p>
+                <span className="item-price">GH₵ —250</span>
               </div>
-              <span className="item-price">GH₵ —250</span>
             </div>
 
-            {/* Item 5 */}
             <div className="menu-item">
               <div className="item-info">
-                <img src="homebg.jpeg" className="menu-img" />
+                <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Seafood Platter</h3>
                 <p>A mix of our best catches, grilled to perfection.</p>
+                <span className="item-price">GH₵ —120</span>
               </div>
-              <span className="item-price">GH₵ —120</span>
             </div>
 
-            {/* Item 6 */}
             <div className="menu-item">
               <div className="item-info">
-                <img src="homebg.jpeg" className="menu-img" />
+                <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Spicy Crab Soup</h3>
                 <p>Traditional recipe with a boutique twist.</p>
+                <span className="item-price">GH₵ — 67</span>
               </div>
-              <span className="item-price">GH₵ — 67</span>
             </div>
           </div>
         </div>
@@ -313,6 +330,7 @@ function Home() {
                 style={{ border: 0, borderRadius: "2px" }}
                 allowFullScreen
                 loading="lazy"
+                title="Location Map"
               ></iframe>
             </div>
           </div>
@@ -345,8 +363,7 @@ function Home() {
 
             <div className="footer-bottom">
               <p>
-                &copy; {new Date().getFullYear()} Crab Boutique. All Rights
-                Reserved.
+                © {new Date().getFullYear()} Crab Boutique. All Rights Reserved.
               </p>
             </div>
           </div>

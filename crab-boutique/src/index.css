@@ -12,7 +12,17 @@ body {
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/crab.jpeg");
 }
-
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
 .Header {
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img-1.jpeg");
@@ -31,8 +41,10 @@ body {
 
 .logo-name {
   font-family: "Montserrat", sans-serif;
-  font-size: 30px;
+  font-size: 1.5rem;
   color: #ddd;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .crab {
   display: none;
@@ -98,7 +110,7 @@ span {
 .btns {
   display: flex;
 }
-.close-btn {
+.toggle-menus {
   display: none;
 }
 .hero-order-btn {
@@ -482,7 +494,7 @@ span {
   }
 }
 
-/* --- MOBILE RESPONSIVE (2x2 Grid) --- */
+/* --- MOBILE RESPONSIVE (2x2 Grid) for detail section --- */
 @media (max-width: 768px) {
   .details-container {
     display: grid;
@@ -544,14 +556,19 @@ span {
     grid-template-columns: 1fr;
   }
   .menu-table {
-    background-color: #d2691e;
     color: #fff;
-    border-radius: 6px;
+    border-radius: 46px;
   }
   .menu-img {
     width: 20%;
     border: 2px solid rgb(228, 226, 226);
     border-radius: 100%;
+  }
+  .item-info {
+    background-color: #d68e07;
+    padding: 20px;
+    color: #fff;
+    border-radius: 6px;
   }
   .about-details {
     background:
@@ -580,4 +597,31 @@ span {
     display: flex;
     width: 100%;
   }
+}
+
+/* Ensure your inner content head wrapper stays fixed at the top layout window */
+.Header.sticky .head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #171717; /* High-end dark matching palette solid background */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Smooth elevation indicator shadow */
+  animation: slideDown 0.3s ease-in-out;
+}
+
+/* Optional high-end entrance transition */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Ensure padding adjustments exist on subsequent blocks so structural elements don't suddenly jump up */
+.Header.sticky {
+  padding-bottom: 70px; /* Matches the layout height calculation of your active navbar element */
 }
