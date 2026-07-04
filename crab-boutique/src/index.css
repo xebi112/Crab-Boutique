@@ -327,7 +327,42 @@ span {
   border-bottom: 1px solid #c5a059;
   transform: translateX(5px);
 }
+.order-item {
+  display: flex;
+  justify-content: space-between; /* left vs right */
+  align-items: center;
+}
 
+.order-item .item-price {
+  font-weight: bold;
+  color: #333;
+}
+
+.order-item div {
+  display: flex;
+  gap: 0.5rem; /* spacing between button and icon */
+}
+.order-item button {
+  background-color: #e68210;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  border: 1px solid rgb(255, 115, 0);
+  border-radius: 6px;
+}
+
+.order-item .fa-whatsapp {
+  font-size: 1.5rem;
+  color: #25d366;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.order-item .fa-whatsapp:hover {
+  transform: scale(1.2);
+  color: #130133;
+}
 .item-info h3 {
   font-size: 1.1rem;
   color: #222;
@@ -412,18 +447,18 @@ span {
     color: rgba(236, 97, 4, 0.9);
     font-size: 1.5rem;
   }
+  .toggle-menus {
+    display: flex;
+  }
   .logo-name {
     font-family: "Roboto";
     color: #ddd;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
     font-weight: bold;
   }
-  .menu-burger {
-    font-size: 1.5rem;
-    color: #d2691e;
-  }
+
   .small-screen-logo-name {
     font-size: 10vw;
     line-height: 1.2;
@@ -492,6 +527,9 @@ span {
     border-bottom: 1.5px solid #e5c158; /* Sharp, thin luxury line */
     padding-bottom: 12px; /* Generous breathing room between text and line */
   }
+  .story-container {
+    display: none;
+  }
 }
 
 /* --- MOBILE RESPONSIVE (2x2 Grid) for detail section --- */
@@ -555,21 +593,71 @@ span {
   .table-grid {
     grid-template-columns: 1fr;
   }
+  .menu-burger {
+    font-size: 1.5rem;
+    color: #d2691e;
+  }
+  .menu-table {
+    max-width: 1000px;
+    margin: 0;
+    padding: 40px;
+    background-color: transparent;
+    border-radius: 6px;
+  }
   .menu-table {
     color: #fff;
     border-radius: 46px;
   }
   .menu-img {
-    width: 20%;
+    width: 30%;
+    object-fit: cover;
     border: 2px solid rgb(228, 226, 226);
     border-radius: 100%;
   }
+  .order-item {
+    display: flex;
+    justify-content: space-between; /* left vs right */
+    align-items: center;
+  }
+
+  .order-item .item-price {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .order-item div {
+    display: flex;
+    gap: 0.5rem; /* spacing between button and icon */
+  }
+  .order-item button {
+    background-color: #e68210;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    cursor: pointer;
+    border: 1px solid rgb(255, 115, 0);
+    border-radius: 6px;
+  }
+
+  .order-item .fa-whatsapp {
+    font-size: 1.5rem;
+    color: #25d366;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .order-item .fa-whatsapp:hover {
+    transform: scale(1.2);
+    color: #130133;
+  }
+
   .item-info {
     background-color: #d68e07;
     padding: 20px;
     color: #fff;
     border-radius: 6px;
   }
+
   .about-details {
     background:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/crab.jpeg");

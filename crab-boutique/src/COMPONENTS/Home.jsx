@@ -47,7 +47,7 @@ function Home() {
     const parts = cleanTime.split(" ");
     const daystring = parts[0];
     const hour = parseInt(parts[1], 10);
-
+    console.log(hour);
     if (daystring === "Monday") {
       return "MONDAY_CLOSED";
     }
@@ -71,6 +71,7 @@ function Home() {
           <p className="logo-name">
             🦀 <span>Crab</span> Boutique
           </p>
+
           <div className="toggle-menus">
             {!isOpen ? (
               <div className="menu-burger" onClick={toggleMenu}>
@@ -84,7 +85,7 @@ function Home() {
           </div>
 
           {/* Logic Fix: Ensures links are conditionally modified when active state is true */}
-          <div className={`nav-links ${isOpen ? "active" : ""}`}>
+          <div className={`nav-links ${isOpen ? "" : "active"}`}>
             <Link to="/" className="home-img" onClick={() => setIsOpen(false)}>
               Home
             </Link>
@@ -204,51 +205,55 @@ function Home() {
       </section>
 
       <main className="container">
-        <div>
-          <p className="story">OUR STORY</p>
-        </div>
-        <div className="img-left" data-aos="fade-right">
-          <img src="img-3.jpeg" alt="Togetherness" />
-          <div className="story-text">
-            <h3 className="sub-text">At Crab Boutique,</h3>
-            <p className="text">
-              Every table is more than a place to eat it’s where friendships
-              grow, laughter fills the air, and games turn into memories. Each
-              dish is part of the fun.
-            </p>
+        <div className="story-container">
+          <div>
+            <p className="story">OUR STORY</p>
           </div>
-        </div>
-
-        <div className="img-right" data-aos="fade-left">
-          <img src="img-4.jpeg" alt="Freshness" />
-          <div className="story-text">
-            <h3 className="sub-text">From the ocean’s depth to your plate,</h3>
-            <p className="text">
-              We bring the finest crabs and seafood, prepared with care so every
-              bite carries the taste of freshness and authenticity.
-            </p>
+          <div className="img-left" data-aos="fade-right">
+            <img src="img-3.jpeg" alt="Togetherness" />
+            <div className="story-text">
+              <h3 className="sub-text">At Crab Boutique,</h3>
+              <p className="text">
+                Every table is more than a place to eat it’s where friendships
+                grow, laughter fills the air, and games turn into memories. Each
+                dish is part of the fun.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div className="img-left" data-aos="fade-right">
-          <img src="img-5.jpeg" alt="Artistry" />
-          <div className="story-text">
-            <h3 className="sub-text">Boutique Creations</h3>
-            <p className="text">
-              Every dish is a blend of tradition and bold flavors, plated with
-              artistry and served with passion to satisfy your soul.
-            </p>
+          <div className="img-right" data-aos="fade-left">
+            <img src="img-4.jpeg" alt="Freshness" />
+            <div className="story-text">
+              <h3 className="sub-text">
+                From the ocean’s depth to your plate,
+              </h3>
+              <p className="text">
+                We bring the finest crabs and seafood, prepared with care so
+                every bite carries the taste of freshness and authenticity.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div className="img-right">
-          <img src="img-6.jpeg" alt="Connection" />
-          <div className="story-text">
-            <h3 className="sub-text">An experience of connection.</h3>
-            <p className="text">
-              At Crab Boutique, meals become stories, and stories become
-              memories worth sharing with those you love.
-            </p>
+          <div className="img-left" data-aos="fade-right">
+            <img src="img-5.jpeg" alt="Artistry" />
+            <div className="story-text">
+              <h3 className="sub-text">Boutique Creations</h3>
+              <p className="text">
+                Every dish is a blend of tradition and bold flavors, plated with
+                artistry and served with passion to satisfy your soul.
+              </p>
+            </div>
+          </div>
+
+          <div className="img-right">
+            <img src="img-6.jpeg" alt="Connection" />
+            <div className="story-text">
+              <h3 className="sub-text">An experience of connection.</h3>
+              <p className="text">
+                At Crab Boutique, meals become stories, and stories become
+                memories worth sharing with those you love.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -257,8 +262,9 @@ function Home() {
         <div className="menu-table" id="menu">
           <div className="menu-header-area">
             <p className="menu-head">our Menu</p>
+            <h5>Openining Hours:Tuesday-Sunday 9am-8pm</h5>
             <Link to="/menu" className="menu-text">
-              View Full Experience ⟶
+              View Full Menu Experience ⟶
             </Link>
           </div>
 
@@ -268,7 +274,13 @@ function Home() {
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Whole Spiced Crab</h3>
                 <p>House-cracked, ginger-chili butter, lime.</p>
-                <span className="item-price">GH₵ — 200</span>
+                <div className="order-item">
+                  <span className="item-price">GH₵ — 200</span>
+                  <div>
+                    <button>Order ⟶ </button>
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -277,7 +289,13 @@ function Home() {
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Garlic Butter Shrimp</h3>
                 <p>Sautéed in premium herbs and garlic.</p>
-                <span className="item-price">GH₵ — 150</span>
+                <div className="order-item">
+                  <span className="item-price">GH₵ — 150</span>
+                  <div>
+                    <button>Order ⟶</button>
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -286,7 +304,13 @@ function Home() {
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Lobster Thermidor</h3>
                 <p>Rich creamy brandy sauce with parmesan.</p>
-                <span className="item-price">GH₵ —100</span>
+                <div className="order-item">
+                  <span className="item-price">GH₵ —100</span>
+                  <div>
+                    <button>Order ⟶</button>
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -295,7 +319,13 @@ function Home() {
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Crab Cakes</h3>
                 <p>Jumbo lump crab with spicy remoulade.</p>
-                <span className="item-price">GH₵ —250</span>
+                <div className="order-item">
+                  <span className="item-price">GH₵ —250</span>
+                  <div>
+                    <button>Order ⟶</button>
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -304,7 +334,13 @@ function Home() {
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Seafood Platter</h3>
                 <p>A mix of our best catches, grilled to perfection.</p>
-                <span className="item-price">GH₵ —120</span>
+                <div className="order-item">
+                  <span className="item-price">GH₵ —120</span>
+                  <div>
+                    <button>Order ⟶</button>
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -313,7 +349,13 @@ function Home() {
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
                 <h3>Spicy Crab Soup</h3>
                 <p>Traditional recipe with a boutique twist.</p>
-                <span className="item-price">GH₵ — 67</span>
+                <div className="order-item">
+                  <span className="item-price">GH₵ — 67</span>
+                  <div>
+                    <button>Order ⟶</button>
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -348,7 +390,7 @@ function Home() {
 
               <div className="footer-info-block">
                 <h5>
-                  <i className="fas fa-phone-alt"></i>For Orders Call Us
+                  <i className="fas fa-phone-alt"></i> For Orders Call Us
                 </h5>
                 <span>+233 24 442 2614</span>
               </div>
