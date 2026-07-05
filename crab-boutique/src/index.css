@@ -10,7 +10,7 @@ body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden; /* prevent horizontal scroll */
   background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/crab.jpeg");
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/crab.jpeg");
 }
 html,
 body {
@@ -25,13 +25,18 @@ img {
 }
 .Header {
   background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img-1.jpeg");
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img-1.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 98vh;
 }
-
+.overlay {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
 .head {
   display: flex;
   justify-content: space-between;
@@ -39,12 +44,15 @@ img {
   padding: 2rem;
 }
 
-.logo-name {
+.logo-name img {
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   color: #ddd;
   text-transform: uppercase;
   letter-spacing: 2px;
+  border-radius: 0%;
+  width: 18%;
+  background-color: transparent;
 }
 .crab {
   display: none;
@@ -411,7 +419,7 @@ span {
 /*HEARDER STYLING*/
 @media (max-width: 768px) {
   .Header {
-    height: 55vh;
+    height: 70vh;
     width: 100%;
   }
 
@@ -460,13 +468,13 @@ span {
   }
 
   .small-screen-logo-name {
-    font-size: 10vw;
+    font-size: 14vw;
     line-height: 1.2;
     text-align: center;
     letter-spacing: 1.5px;
-    font-family: "Dancing Script", serif;
+    font-family: "Dancing Script";
     font-weight: 900;
-    color: #ffffff;
+    color: #f8f5f5;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
   }
 
@@ -493,7 +501,12 @@ span {
     color: #ff6600; /* warm accent color */
     margin: 0 5px; /* spacing around spans */
   }
-
+  .overlay {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+  }
   .header-location {
     margin-top: 10%;
   }
@@ -694,7 +707,7 @@ span {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #171717; /* High-end dark matching palette solid background */
+  background-color: #000000; /* High-end dark matching palette solid background */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Smooth elevation indicator shadow */
   animation: slideDown 0.3s ease-in-out;
 }

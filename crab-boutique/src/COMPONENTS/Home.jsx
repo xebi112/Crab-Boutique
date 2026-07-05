@@ -66,87 +66,94 @@ function Home() {
       {/* The outermost head wrapper changes state based on window position. 
         Applying the sticky class conditionally injects the structural fix.
       */}
+
       <div className={`Header ${isSticky ? "sticky" : ""}`}>
-        <div className="head">
-          <p className="logo-name">
-            🦀 <span>Crab</span> Boutique
-          </p>
-
-          <div className="toggle-menus">
-            {!isOpen ? (
-              <div className="menu-burger" onClick={toggleMenu}>
-                <i className="fas fa-bars"></i>
-              </div>
-            ) : (
-              <div className="close-btn" onClick={toggleMenu}>
-                <i className="fa-solid fa-times"></i>
-              </div>
-            )}
-          </div>
-
-          {/* Logic Fix: Ensures links are conditionally modified when active state is true */}
-          <div className={`nav-links ${isOpen ? "" : "active"}`}>
-            <Link to="/" className="home-img" onClick={() => setIsOpen(false)}>
-              Home
-            </Link>
-            <ScrollLink
-              to="menu"
-              smooth={true}
-              duration={500}
-              onClick={() => setIsOpen(false)}
-            >
-              Menu
-            </ScrollLink>
-            <ScrollLink
-              to="about"
-              smooth={true}
-              duration={300}
-              onClick={() => setIsOpen(false)}
-            >
-              About Us
-            </ScrollLink>
-            <Link
-              to="/contact"
-              className="contact-img"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </Link>
-          </div>
-        </div>
-
-        <section className="hero-section">
-          <div className="small-screen-hero-mesg">
-            <p className="small-screen-logo-name">
-              Freshly Made,
-              <br />
-              Sea Food and Crab Restaurant
+        <div className="overlay">
+          <div className="head">
+            <p className="logo-name">
+              <img src="crab-Boutiques Logo.png" />
             </p>
 
-            <div className="header-location">
-              <p>Accra-Ghana</p>
-              <Link to="/" className="view-btn">
-                Explore Our Menu ⟶
+            <div className="toggle-menus">
+              {!isOpen ? (
+                <div className="menu-burger" onClick={toggleMenu}>
+                  <i className="fas fa-bars"></i>
+                </div>
+              ) : (
+                <div className="close-btn" onClick={toggleMenu}>
+                  <i className="fa-solid fa-times"></i>
+                </div>
+              )}
+            </div>
+
+            {/* Logic Fix: Ensures links are conditionally modified when active state is true */}
+            <div className={`nav-links ${isOpen ? "" : "active"}`}>
+              <Link
+                to="/"
+                className="home-img"
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </Link>
+              <ScrollLink
+                to="menu"
+                smooth={true}
+                duration={500}
+                onClick={() => setIsOpen(false)}
+              >
+                Menu
+              </ScrollLink>
+              <ScrollLink
+                to="about"
+                smooth={true}
+                duration={300}
+                onClick={() => setIsOpen(false)}
+              >
+                About Us
+              </ScrollLink>
+              <Link
+                to="/contact"
+                className="contact-img"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact
               </Link>
             </div>
           </div>
-          <div data-aos="zoom-in" className="hero-mesg">
-            <p className="hero-location">Accra-Ghana</p>
-            <h1>
-              Freshly <span>Made </span>,
-              <br />
-              SeaFood and Crab
-            </h1>
-            <p className="hero-sub">
-              Fresh ingredients <span>unique</span> flavours and
-              <br />
-              experience you'll love.
-            </p>
-            <div className="btns">
-              <button className="hero-order-btn">Explore Our Menu →</button>
+
+          <section className="hero-section">
+            <div className="small-screen-hero-mesg">
+              <p className="small-screen-logo-name" data-aos="fade-right">
+                Freshly Made,
+                <br />
+                SeaFood and Crab Restaurant
+              </p>
+
+              <div className="header-location">
+                <p>Accra-Ghana</p>
+                <Link to="/" className="view-btn">
+                  Explore Our Menu ⟶
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
+            <div data-aos="zoom-in" className="hero-mesg">
+              <p className="hero-location">Accra-Ghana</p>
+              <h1>
+                Freshly <span>Made </span>,
+                <br />
+                SeaFood and Crab
+              </h1>
+              <p className="hero-sub">
+                Fresh ingredients <span>unique</span> flavours and
+                <br />
+                experience you'll love.
+              </p>
+              <div className="btns">
+                <button className="hero-order-btn">Explore Our Menu →</button>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
 
       <section className="details-container">
