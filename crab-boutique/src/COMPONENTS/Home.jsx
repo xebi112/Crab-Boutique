@@ -70,9 +70,7 @@ function Home() {
       <div className={`Header ${isSticky ? "sticky" : ""}`}>
         <div className="overlay">
           <div className="head">
-            <p className="logo-name">
-              <img src="crab-Boutiques Logo.png" />
-            </p>
+            <p className="logo-name"></p>
 
             <div className="toggle-menus">
               {!isOpen ? (
@@ -124,7 +122,7 @@ function Home() {
           <section className="hero-section">
             <div className="small-screen-hero-mesg">
               <p className="small-screen-logo-name" data-aos="fade-right">
-                Freshly Made,
+                Your Favorite,
                 <br />
                 SeaFood and Crab Restaurant
               </p>
@@ -202,7 +200,7 @@ function Home() {
               className={`status-value ${shopStatus === true ? "open" : "closed"}`}
             >
               {shopStatus === "MONDAY_CLOSED"
-                ? "Sorry, We are not open on Mondays"
+                ? " We are not open on Mondays"
                 : shopStatus
                   ? " WE ARE OPEN"
                   : "CLOSED UNTIL 9AM"}
@@ -269,7 +267,7 @@ function Home() {
         <div className="menu-table" id="menu">
           <div className="menu-header-area">
             <p className="menu-head">our Menu</p>
-            <h5>Openining Hours:Tuesday-Sunday 9am-8pm</h5>
+            <h5>Opening Hours:Tuesday-Sunday 9am-8pm</h5>
             <Link to="/menu" className="menu-text">
               View Full Menu Experience ⟶
             </Link>

@@ -419,7 +419,7 @@ span {
 /*HEARDER STYLING*/
 @media (max-width: 768px) {
   .Header {
-    height: 70vh;
+    height: 78dvh;
     width: 100%;
   }
 
@@ -468,14 +468,14 @@ span {
   }
 
   .small-screen-logo-name {
-    font-size: 14vw;
+    font-size: 6vw;
     line-height: 1.2;
-    text-align: center;
     letter-spacing: 1.5px;
-    font-family: "Dancing Script";
-    font-weight: 900;
+    text-align: center;
+    font-family: "Cormorant";
+    font-weight: 600;
     color: #f8f5f5;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 6px rgba(8, 5, 2, 0.5);
   }
 
   .small-screen-hero-mesg {
@@ -486,6 +486,7 @@ span {
     letter-spacing: 3px;
     font-family: "Roboto";
     color: #d2691e;
+    margin: 20%;
   }
   .small-screen-hero-submesg {
     font-size: 3.5vw; /* smaller than the logo text */
@@ -502,7 +503,10 @@ span {
     margin: 0 5px; /* spacing around spans */
   }
   .overlay {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.199),
+      rgba(0, 0, 0, 0.199)
+    );
     background-size: cover;
     background-position: center;
     height: 90vh;
@@ -610,8 +614,10 @@ span {
     font-size: 1.5rem;
     color: #d2691e;
   }
+
   .menu-table {
-    max-width: 1000px;
+    /*hamburger styling mobile*/
+    width: 100%;
     margin: 0;
     padding: 40px;
     background-color: transparent;
@@ -665,10 +671,10 @@ span {
   }
 
   .item-info {
-    background-color: #d68e07;
+    background-color: #f3a30e;
     padding: 20px;
     color: #fff;
-    border-radius: 6px;
+    border-radius: 20px;
   }
 
   .about-details {
@@ -724,5 +730,5 @@ span {
 
 /* Ensure padding adjustments exist on subsequent blocks so structural elements don't suddenly jump up */
 .Header.sticky {
-  padding-bottom: 70px; /* Matches the layout height calculation of your active navbar element */
+  padding-bottom: 50px; /* Matches the layout height calculation of your active navbar element */
 }
