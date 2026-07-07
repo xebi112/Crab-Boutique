@@ -9,8 +9,7 @@
 body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden; /* prevent horizontal scroll */
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/crab.jpeg");
+  background-color: #efede6;
 }
 html,
 body {
@@ -468,11 +467,11 @@ span {
   }
 
   .small-screen-logo-name {
-    font-size: 6vw;
-    line-height: 1.2;
+    font-size: 1.9rem;
+    line-height: 1.5;
     letter-spacing: 1.5px;
     text-align: center;
-    font-family: "Cormorant";
+    font-family: "Dancing Script", serif;
     font-weight: 600;
     color: #f8f5f5;
     text-shadow: 2px 2px 6px rgba(8, 5, 2, 0.5);
@@ -488,20 +487,7 @@ span {
     color: #d2691e;
     margin: 20%;
   }
-  .small-screen-hero-submesg {
-    font-size: 3.5vw; /* smaller than the logo text */
-    line-height: 1.4; /* comfortable spacing */
-    text-align: left; /* centered for balance */
-    font-family: "Cormorant", sans-serif; /* clean, modern font */
-    font-weight: 400;
-    color: #f5f5f5; /* soft white for readability */
-  }
 
-  .small-screen-hero-submesg span {
-    font-weight: 600; /* highlight spans */
-    color: #ff6600; /* warm accent color */
-    margin: 0 5px; /* spacing around spans */
-  }
   .overlay {
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.199),
@@ -517,15 +503,21 @@ span {
   .header-location p {
     text-align: center;
   }
+
   .hero-mesg {
     display: none;
   }
   .view-btn {
-    color: #f0eeee;
-    font-size: 3vw;
-    line-height: 2;
+    color: #f8f5f4;
+    font-size: 3.5vw;
+    line-height: 4;
     cursor: pointer;
     text-decoration: none;
+    transition: transform 0.3s;
+  }
+  .view-btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 24px rgba(29, 24, 24, 0.26);
   }
   .story {
     /* 1. Set the premium font family and make it italic for elegance */
@@ -671,7 +663,7 @@ span {
   }
 
   .item-info {
-    background-color: #f3a30e;
+    background-color: #000000;
     padding: 20px;
     color: #fff;
     border-radius: 20px;

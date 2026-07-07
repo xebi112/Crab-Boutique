@@ -130,7 +130,7 @@ function Home() {
               <div className="header-location">
                 <p>Accra-Ghana</p>
                 <Link to="/" className="view-btn">
-                  Explore Our Menu ⟶
+                  <i className="fas fa-utensils"></i> Explore Our Menu ⟶
                 </Link>
               </div>
             </div>
@@ -266,7 +266,10 @@ function Home() {
 
         <div className="menu-table" id="menu">
           <div className="menu-header-area">
+            <p>Feeling Hungry?😋 </p>
+            <h3>Your next favorite seafood meal is just one tap away</h3>
             <p className="menu-head">our Menu</p>
+
             <h5>Opening Hours:Tuesday-Sunday 9am-8pm</h5>
             <Link to="/menu" className="menu-text">
               View Full Menu Experience ⟶
