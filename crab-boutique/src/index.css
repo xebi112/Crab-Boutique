@@ -9,7 +9,9 @@
 body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden; /* prevent horizontal scroll */
-  background-color: #efede6;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.336), rgba(0, 0, 0, 0.247)),
+    url("/crab.jpeg");
 }
 html,
 body {
@@ -467,11 +469,11 @@ span {
   }
 
   .small-screen-logo-name {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
     line-height: 1.5;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.5px;
     text-align: center;
-    font-family: "Dancing Script", serif;
+    font-family: "Montserrat", serif;
     font-weight: 600;
     color: #f8f5f5;
     text-shadow: 2px 2px 6px rgba(8, 5, 2, 0.5);
@@ -564,6 +566,9 @@ span {
     font-size: 13px;
     white-space: normal; /* Allow text like "Closed until 9am" to wrap if needed */
   }
+  .map-container {
+    width: 100%;
+  }
 }
 
 /* Extra small screens (optional) */
@@ -620,20 +625,25 @@ span {
     border-radius: 46px;
   }
   .menu-img {
-    width: 30%;
+    width: 40%;
     object-fit: cover;
     border: 2px solid rgb(228, 226, 226);
-    border-radius: 100%;
+    border-radius: 20%;
   }
-  .order-item {
+  .order-item span {
     display: flex;
-    justify-content: space-between; /* left vs right */
+    align-items: left;
+    flex-direction: column;
+  }
+  .food-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
-
   .order-item .item-price {
     font-weight: bold;
-    color: #333;
+    color: #bd4703;
   }
 
   .order-item div {
@@ -663,10 +673,14 @@ span {
   }
 
   .item-info {
+    display: flex;
     background-color: #000000;
     padding: 20px;
     color: #fff;
     border-radius: 20px;
+  }
+  .item-info h3 {
+    color: #fff;
   }
 
   .about-details {

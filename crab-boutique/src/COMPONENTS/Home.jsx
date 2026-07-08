@@ -274,19 +274,18 @@ function Home() {
             <Link to="/menu" className="menu-text">
               View Full Menu Experience ⟶
             </Link>
+            <p>Category</p>
           </div>
 
           <div className="table-grid">
             <div className="menu-item">
               <div className="item-info">
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
-                <h3>Whole Spiced Crab</h3>
-                <p>House-cracked, ginger-chili butter, lime.</p>
-                <div className="order-item">
-                  <span className="item-price">GH₵ — 200</span>
-                  <div>
-                    <button>Order ⟶ </button>
-                    <i class="fab fa-whatsapp"></i>
+                <div className="food-text-container">
+                  <h3>Whole Spiced Crab</h3>
+                  <p>House-cracked, ginger-chili butter, lime.</p>
+                  <div className="order-item">
+                    <span className="item-price">GH₵ — 200</span>
                   </div>
                 </div>
               </div>
@@ -295,13 +294,11 @@ function Home() {
             <div className="menu-item">
               <div className="item-info">
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
-                <h3>Garlic Butter Shrimp</h3>
-                <p>Sautéed in premium herbs and garlic.</p>
-                <div className="order-item">
-                  <span className="item-price">GH₵ — 150</span>
-                  <div>
-                    <button>Order ⟶</button>
-                    <i class="fab fa-whatsapp"></i>
+                <div className="food-text-container">
+                  <h3>Garlic Butter Shrimp</h3>
+                  <p>Sautéed in premium herbs and garlic.</p>
+                  <div className="order-item">
+                    <span className="item-price">GH₵ — 150</span>
                   </div>
                 </div>
               </div>
@@ -310,13 +307,11 @@ function Home() {
             <div className="menu-item">
               <div className="item-info">
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
-                <h3>Lobster Thermidor</h3>
-                <p>Rich creamy brandy sauce with parmesan.</p>
-                <div className="order-item">
-                  <span className="item-price">GH₵ —100</span>
-                  <div>
-                    <button>Order ⟶</button>
-                    <i class="fab fa-whatsapp"></i>
+                <div className="food-text-container">
+                  <h3>Lobster Thermidor</h3>
+                  <p>Rich creamy brandy sauce with parmesan.</p>
+                  <div className="order-item">
+                    <span className="item-price">GH₵ —100</span>
                   </div>
                 </div>
               </div>
@@ -325,13 +320,11 @@ function Home() {
             <div className="menu-item">
               <div className="item-info">
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
-                <h3>Crab Cakes</h3>
-                <p>Jumbo lump crab with spicy remoulade.</p>
-                <div className="order-item">
-                  <span className="item-price">GH₵ —250</span>
-                  <div>
-                    <button>Order ⟶</button>
-                    <i class="fab fa-whatsapp"></i>
+                <div className="food-text-container">
+                  <h3>Crab Cakes</h3>
+                  <p>Jumbo lump crab with spicy remoulade.</p>
+                  <div className="order-item">
+                    <span className="item-price">GH₵ —250</span>
                   </div>
                 </div>
               </div>
@@ -340,13 +333,11 @@ function Home() {
             <div className="menu-item">
               <div className="item-info">
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
-                <h3>Seafood Platter</h3>
-                <p>A mix of our best catches, grilled to perfection.</p>
-                <div className="order-item">
-                  <span className="item-price">GH₵ —120</span>
-                  <div>
-                    <button>Order ⟶</button>
-                    <i class="fab fa-whatsapp"></i>
+                <div className="food-text-container">
+                  <h3>Seafood Platter</h3>
+                  <p>A mix of our best catches, grilled to perfection.</p>
+                  <div className="order-item">
+                    <span className="item-price">GH₵ —120</span>
                   </div>
                 </div>
               </div>
@@ -355,13 +346,11 @@ function Home() {
             <div className="menu-item">
               <div className="item-info">
                 <img src="homebg.jpeg" className="menu-img" alt="Menu item" />
-                <h3>Spicy Crab Soup</h3>
-                <p>Traditional recipe with a boutique twist.</p>
-                <div className="order-item">
-                  <span className="item-price">GH₵ — 67</span>
-                  <div>
-                    <button>Order ⟶</button>
-                    <i class="fab fa-whatsapp"></i>
+                <div className="food-text-container">
+                  <h3>Spicy Crab Soup</h3>
+                  <p>Traditional recipe with a boutique twist.</p>
+                  <div className="order-item">
+                    <span className="item-price">GH₵ — 67</span>
                   </div>
                 </div>
               </div>
@@ -377,7 +366,7 @@ function Home() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.0123456789!2d-0.2012345!3d5.5612345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzMnNDAuNCJOIDDCsDEyJDA0LjQiVw!5e0!3m2!1sen!2sgh!4v1234567890"
                 width="100%"
                 height="350"
-                style={{ border: 0, borderRadius: "2px" }}
+                style={{ border: 0, borderRadius: "20px" }}
                 allowFullScreen
                 loading="lazy"
                 title="Location Map"
