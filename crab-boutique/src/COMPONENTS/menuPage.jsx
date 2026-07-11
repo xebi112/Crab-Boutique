@@ -27,18 +27,21 @@ function Menu() {
             View Full Menu Experience ⟶
           </Link>
           <p>Category</p>
-          {CATEGORIES.map((cat) => (
-            <>
-              <button
-                key={cat.id}
-                onClick={() => setisActive(cat.id)}
-                className={`category-btn ${isActive === cat.id ? "active" : ""}`}
-              >
-                {cat.icon}
-                <span>{cat.name}</span>
-              </button>
-            </>
-          ))}
+          <div className="category-container">
+            {CATEGORIES.map((cat) => (
+              <>
+                <button
+                  key={cat.id}
+                  onClick={() => setisActive(cat.id)}
+                  className={`category-btn ${isActive === cat.id ? "active" : ""}`}
+                >
+                  {cat.icon}
+                  <span className="cat-name">{cat.name}</span>
+                </button>
+              </>
+            ))}
+          </div>
+
           <div className="table-grid">
             {filtedFood.map((show) => (
               <>

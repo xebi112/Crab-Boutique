@@ -306,17 +306,30 @@ span {
   background-color: #ff8a04ef;
   border-radius: 6px;
 }
+/* Container holding your category buttons (if you have one) */
+.category-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  padding: 0 20px;
+  color: #fff;
+}
+.cat-name {
+  color: #fff;
+}
 
 /* Base Button Styling */
 .category-btn {
   display: inline-flex;
   align-items: center;
-  gap: 30px;
-  background-color: #301402bd; /* Matches your details container background */
+  gap: 10px;
+  background-color: #0e0b0abd; /* Matches your details container background */
   color: #ddd;
   padding: 12px 24px;
   border: 1px solid #313030;
-  border-radius: 60px; /* Rounded pill style */
+  border-radius: 20px; /* Rounded pill style */
   font-family: "Poppins", sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
@@ -325,23 +338,14 @@ span {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover Effect */
-.category-btn:hover {
-  background-color: #0c0704bd;
-  color: #f8f8f8;
-  border-color: rgb(255, 255, 255);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(210, 105, 30, 0.2);
-}
-
 /* Active / Selected State */
 .category-btn.active {
-  background-color: rgb(7, 6, 6);
+  background-color: rgb(15, 15, 15);
   color: #fff;
   border-color: #fff;
   font-weight: 600;
   transform: translateY(0);
-  box-shadow: 0 4px 12px rgba(19, 17, 15, 0.4);
+  box-shadow: 0 4px 12px rgba(210, 105, 30, 0.4);
 }
 
 .menu-img {
