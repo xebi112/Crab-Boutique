@@ -51,8 +51,10 @@ function Menu() {
                     <div className="food-text-container">
                       <h3>{show.title}</h3>
                       <p>{show.desc}</p>
-                      <span className="item-price">{show.price}</span>
-                      <button className="food-order-btn">{show.btn}</button>
+                      <div className="price-order-row">
+                        <span className="item-price">{show.price}</span>
+                        <button className="food-order-btn">{show.btn}</button>
+                      </div>
                     </div>
                   </div>
                 </div>

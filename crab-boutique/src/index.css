@@ -348,13 +348,6 @@ span {
   box-shadow: 0 4px 12px rgba(210, 105, 30, 0.4);
 }
 
-.menu-img {
-  width: 9rem;
-  height: 7rem;
-  object-fit: cover;
-  border: 2px solid rgb(228, 226, 226);
-  border-radius: 20%;
-}
 .menu-header-area {
   text-align: center;
   margin-bottom: 50px;
@@ -395,21 +388,23 @@ span {
 
 .table-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two clean columns */
-  column-gap: 60px;
-  row-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(450px));
+  gap: 30px;
+  padding: 20px 0;
 }
 
 .menu-item {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 20px 0;
+  padding: 20px;
   border-bottom: 1px solid #f0f0f0; /* The "Table" line */
   transition: all 0.3s ease;
 }
 .food-text-container {
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .menu-item:hover {
   border-bottom: 1px solid #c5a059;
@@ -422,6 +417,7 @@ span {
 }
 .item-info {
   display: flex;
+  align-items: center;
   background-color: #000000;
   padding: 20px;
   gap: 40px;
@@ -429,33 +425,51 @@ span {
   border-radius: 20px;
 }
 
+.menu-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid rgb(228, 226, 226);
+  border-radius: 12px;
+}
 .item-info h3 {
-  font-size: 1.1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
   color: #ffffff;
-  margin: 0 0 5px 0;
+  margin: 0 0 6px 0;
   font-weight: 600;
 }
 .food-order-btn {
-  padding: 16px;
-  border: 0;
-  border-radius: 12px;
-  background-color: #bd4703;
+  background-color: transparent;
+  border: 1px solid chocolate;
   color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
   cursor: pointer;
-  width: 100%;
+  transition: all 0.3s ease;
 }
-
 .item-info p {
   font-size: 0.9rem;
+  line-height: 1.4;
   color: #f3f0f0;
-  margin: 0;
-  font-style: italic;
+  margin: 0 0 15px 0;
+  font-family: "Roboto", sans-serif;
 }
-
+/* Aligns the price and action button cleanly */
+.price-order-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Pushes it right to the bottom */
+}
 .item-price {
-  color: #c5a059;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  color: chocolate;
+  font-weight: 700;
+  font-size: 1.15rem;
 }
 /*FOR FOOTER*/
 .about-text {
@@ -698,9 +712,9 @@ span {
 /* Mobile: Switch to 1 column so it doesn't look squashed */
 @media (max-width: 768px) {
   .table-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Switch to a single file layout */
+    gap: 20px;
   }
-
   .menu-table {
     /*hamburger styling mobile*/
     width: 100%;
@@ -713,12 +727,14 @@ span {
     color: #fff;
     border-radius: 46px;
   }
+  .menu-item {
+    padding: 14px;
+  }
+  /* Shrinks the image size dynamically so it leaves plenty of room for text on the right */
   .menu-img {
-    width: 7rem;
-    height: 7rem;
-    object-fit: cover;
-    border: 2px solid rgb(228, 226, 226);
-    border-radius: 20%;
+    width: 85px;
+    height: 85px;
+    border-radius: 12px; /* Slightly tighter curves to match smaller size */
   }
   .menu-header-area h3 {
     color: rgb(255, 255, 255);
@@ -744,30 +760,30 @@ span {
     line-height: 1;
   }
 
-  .food-text-container {
-    display: flex;
-    flex-direction: column;
+  .food-text-container h3 {
+    font-size: 1rem; /* Compact clean header font sizes */
+    margin-bottom: 4px;
   }
-  .order-item .item-price {
-    font-weight: bold;
-    color: #bd4703;
-    text-align: left;
+
+  .item-price {
+    font-size: 1rem;
   }
 
   .food-order-btn {
-    padding: 16px;
-    border: 0;
-    border-radius: 12px;
-    background-color: #bd4703;
-    color: #fff;
+    padding: 6px 12px; /* Makes the button smaller so it fits the row cleanly */
+    font-size: 0.75rem;
+    border-radius: 8px;
   }
+  .food-text-container p {
+    font-size: 0.75rem; /* Compact description layout */
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  /* Forces elements to stay side-by-side on mobile */
   .item-info {
-    display: flex;
-    background-color: #000000;
-    padding: 20px;
-    gap: 20px;
-    color: #fff;
-    border-radius: 20px;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center; /* Centers the image vertically next to your content */
   }
   .item-info h3 {
     color: #fff;
