@@ -7,8 +7,15 @@ function Menu() {
   const filtedFood =
     isActive === "all"
       ? FOOD_DATA
-      : FOOD_DATA.filter((item) => item.category === isActive);
+      : FOOD_DATA.filter((item) => item.category === isActive); //rice dishes
+  console.log(isActive);
 
+  const handleSendMesg = (foodname, foodprice) => {
+    let number = "0203903254";
+    let message = `Hello Xebi can you kindly send me a ${foodname},${foodprice}`;
+    let url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
   return (
     <>
       <div className="menu-table" id="menu">
@@ -53,7 +60,12 @@ function Menu() {
                       <p>{show.desc}</p>
                       <div className="price-order-row">
                         <span className="item-price">{show.price}</span>
-                        <button className="food-order-btn">{show.btn}</button>
+                        <button
+                          className="food-order-btn"
+                          onClick={() => handleSendMesg(show.title, show.price)}
+                        >
+                          {show.btn || "Order Now"}
+                        </button>
                       </div>
                     </div>
                   </div>
