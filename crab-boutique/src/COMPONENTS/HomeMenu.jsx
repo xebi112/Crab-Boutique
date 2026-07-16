@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
+import Menu from "./Menu";
 import { useState } from "react";
 import { FOOD_DATA, CATEGORIES } from "../foodData";
 
-function Menu() {
+function Homemenu() {
   const [isActive, setisActive] = useState("all");
   const filtedFood =
     isActive === "all"
       ? FOOD_DATA
       : FOOD_DATA.filter((item) => item.category === isActive); //rice dishes
-  console.log(isActive);
 
   const handleSendMesg = (foodname, foodprice) => {
-    let number = "0203903254";
+    let number = "233203903254";
     let message = `Hello Xebi can you kindly send me a ${foodname},${foodprice}`;
     let url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
@@ -30,7 +30,7 @@ function Menu() {
             <i className="fa-regular fa-clock"></i> Opening Hours:
             Tuesday–Sunday 9am–8pm
           </h5>
-          <Link to="/menu" className="menu-link-text">
+          <Link to="/Menu" className="menu-link-text">
             View Full Menu Experience ⟶
           </Link>
           <p>Category</p>
@@ -54,7 +54,13 @@ function Menu() {
               <>
                 <div className="menu-item" key={show.id}>
                   <div className="item-info">
-                    <img src={show.img} className="menu-img" />
+                    <img
+                      src={show.img}
+                      className="menu-img"
+                      loading="lazy"
+                      width="400" /* Recommended: Set width & height to prevent layout shifts */
+                      height="300"
+                    />
                     <div className="food-text-container">
                       <h3>{show.title}</h3>
                       <p>{show.desc}</p>
@@ -79,4 +85,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default Homemenu;

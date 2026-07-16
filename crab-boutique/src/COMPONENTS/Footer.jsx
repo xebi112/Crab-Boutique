@@ -16,12 +16,105 @@ function Footer() {
             ></iframe>
           </div>
         </div>
-
         <div className="footer-content">
-          <hr className="footer-divider" />
+          {/* Column 1: Logo & Brand Caption */}
+          <div className="footer-logo">
+            {/* Changed alignItems to "center" and aligned the text to center */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+                gap: "6px",
+                width: "100%",
+              }}
+            >
+              <p
+                className="footer-logo-name"
+                style={{ margin: 0, fontSize: "2.5rem" }}
+              >
+                🦀
+              </p>
+              <div
+                className="footer-logo-text-stack"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <span className="footer-logo-line-top">CRAB</span>
+                <span className="footer-logo-line-bottom">BOUTIQUE</span>
+              </div>
+            </div>
+            <p
+              className="footer-logo-caption"
+              style={{ textAlign: "center", margin: "15px auto 0" }}
+            >
+              Premium Seafood. Unmatched flavor. Unforgettable experience.
+              Welcome to Crab Boutique.
+            </p>
+            <div className="social-links">
+              <a
+                href="https://instagram.com/_xebicronwell"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
+                <i className="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+              >
+                <i className="fa-brands fa-facebook"></i>
+              </a>
+              <a
+                href="https://tiktok.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="TikTok"
+              >
+                <i className="fa-brands fa-tiktok"></i>
+              </a>
+              <a
+                href="https://wa.me/233244422614"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+              >
+                <i className="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
 
+          {/* Column 2: ADDED QUICK LINKS SECTION */}
+          <section className="footer-menu">
+            <h3>Quick Links</h3>
+            <p>Home</p>
+            <p>Menu</p>
+            <p>About Us</p>
+            <p>Contact</p>
+          </section>
+
+          {/* Column 3: Our Menu */}
+          <section className="footer-menu">
+            <h3>Our Menu</h3>
+            <p>Crab dish</p>
+            <p>Shrimp dish</p>
+            <p>Rice dish</p>
+            <p>Slides </p>
+            <p>Drinks </p>
+            <p>Desserts </p>
+          </section>
+
+          {/* Column 4: Contact Us Details */}
           <section className="about-details">
             <div className="footer-info-block">
+              <p>Contact Us</p>
               <h5>
                 <i className="fas fa-location-dot"></i> Location
               </h5>
@@ -42,12 +135,6 @@ function Footer() {
               <span>crabboutique@gmail.com</span>
             </div>
           </section>
-
-          <div className="footer-bottom">
-            <p>
-              © {new Date().getFullYear()} Crab Boutique. All Rights Reserved.
-            </p>
-          </div>
         </div>
       </footer>
     </>

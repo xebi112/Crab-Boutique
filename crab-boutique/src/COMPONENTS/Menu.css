@@ -1,0 +1,278 @@
+.line {
+  height: 1.5px;
+  flex: 1;
+  position: relative;
+}
+.left-line {
+  background: linear-gradient(to left, #d39e45, transparent);
+}
+
+.right-line {
+  background: linear-gradient(to right, #d39e45, transparent);
+}
+
+.left-line::after {
+  content: "<";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d39e45;
+  font-size: 0.8rem;
+}
+
+.right-line::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d39e45;
+  font-size: 0.8rem;
+}
+
+/* ==========================================
+   1. Typography & Global Resets
+   ========================================== */
+:root {
+  --primary-color: #d2a14e; /* Warm restaurant gold */
+  --dark-bg: #0c0f14; /* Deep slate/black */
+  --card-bg: #161b22; /* Slightly lighter slate for cards */
+  --text-main: #f0f3f6; /* Off-white */
+  --text-muted: #8b949e; /* Gray */
+  --transition: all 0.3s ease;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-main);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================
+   2. Header Styling
+   ========================================== */
+.menu-head-container {
+  text-align: center;
+  padding: 60px 20px 40px;
+  max-width: 800px;
+  margin: 70px auto;
+}
+
+.menu-tagline {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.menu-headline {
+  font-size: 3rem;
+  margin: 10px 0;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 1px;
+}
+
+.menu-description {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.menu-hours {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(210, 161, 78, 0.1);
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid rgba(210, 161, 78, 0.2);
+}
+
+.menu-hours i {
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   3. Section Divider (Signature Dishes Line)
+   ========================================== */
+.menu-header-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto 20px;
+  padding: 0 20px;
+}
+
+.line {
+  height: 1px;
+  flex-grow: 1;
+  background: linear-gradient(
+    to var(--line-dir, right),
+    transparent,
+    var(--primary-color)
+  );
+}
+.left-line {
+  --line-dir: right;
+}
+.right-line {
+  --line-dir: left;
+}
+
+.menu-display-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--primary-color);
+  white-space: nowrap;
+}
+
+/* ==========================================
+   4. Category & Grid Layout
+   ========================================== */
+.menu-category-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.category-section {
+  margin-bottom: 60px;
+}
+
+.category-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #21262d;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Responsive Grid for Food Cards */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* ==========================================
+   5. Food Card Design
+   ========================================== */
+.food-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+  border: 1px solid #21262d;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-color);
+  box-shadow: 0 15px 35px rgba(210, 161, 78, 0.1);
+}
+
+/* Image zoom effect on hover */
+.food-img-container {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.food-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.food-card:hover .food-img-container img {
+  transform: scale(1.08);
+}
+
+/* Info container */
+.food-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.food-title {
+  font-size: 1.3rem;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.food-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  flex-grow: 1; /* Pushes the price and button to the bottom */
+}
+
+/* Card Footer (Price & Button aligned) */
+.food-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.food-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.order-btn {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.order-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+/* ==========================================
+   6. Media Queries for Mobile Responsiveness
+   ========================================== */
+@media (max-width: 768px) {
+  .menu-headline {
+    font-size: 2.2rem;
+  }
+
+  .menu-display-text {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .dishes-grid {
+    grid-template-columns: 1fr; /* Stack cards on very small screens */
+    gap: 20px;
+  }
+}

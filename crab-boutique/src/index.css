@@ -10,7 +10,7 @@ body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden; /* prevent horizontal scroll */
   background:
-    linear-gradient(rgba(0, 0, 0, 0.336), rgba(0, 0, 0, 0.247)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, transparent 100%),
     url("/crab.jpeg");
 }
 html,
@@ -25,18 +25,17 @@ img {
   border-radius: 12px;
 }
 .Header {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img-1.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 98vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box; /* Crucial so padding doesn't push the bar off-screen */
+
+  /* Make sure the header spans the whole width */
+  display: block;
 }
 .overlay {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
 }
 .head {
   display: flex;
@@ -111,9 +110,14 @@ span {
   display: none;
 }
 .hero-section {
-  padding: 20px;
-  padding-top: 90px;
-  font-size: 1.2rem;
+  padding: 10px;
+  padding-top: 10%;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img-1.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 98vh;
 }
 
 .hero-location {
@@ -123,12 +127,13 @@ span {
 }
 
 .hero-section h1 {
-  margin-top: 0;
   font-size: 4.5rem;
   font-family: "Montserrat", sans-serif;
   color: #fff;
 }
-
+.hero-mesg {
+  margin: 50px;
+}
 .hero-sub {
   margin-top: 10px;
   color: #fff;
@@ -301,7 +306,7 @@ span {
 }
 /* --- Menu Section Container --- */
 .menu-table {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 60px auto;
   padding: 50px 20px;
   background: linear-gradient(
@@ -465,7 +470,7 @@ span {
 
 .table-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px));
+  grid-template-columns: repeat(auto-fit, minmax(450px 1fr));
   gap: 30px;
   padding: 20px 0;
 }
@@ -549,29 +554,211 @@ span {
   font-size: 1.15rem;
 }
 /*FOR FOOTER*/
-.about-text {
-  font-family: "Cormorant";
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-}
-.map-container {
-  margin: 40px 0;
+/* ==========================================
+   Footer Main Container Styles
+   ========================================== */
+footer {
+  background-color: #000000; /* Deep dark slate matching your menu bg */
+  border-top: 1px solid #21262d; /* Subtle divider border */
+  padding: 80px 8% 40px; /* Generous breathing room */
+  font-family: "Poppins", sans-serif;
+  color: #f0f3f6;
 }
 
+.footer-content {
+  display: grid;
+  /* Updated to 4 balanced columns: 1.2fr for the logo block, and 1fr for the rest */
+  grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+  gap: 40px; /* Adjusted gap slightly so it fits perfectly on standard desktops */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   Column 1: Logo & Brand Caption
+   ========================================== */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Aligning the 🦀 logo and text horizontally */
+.footer-logo > div:first-of-type {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.footer-logo-name {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.footer-logo-text-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo-line-top {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.footer-logo-line-bottom {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #df6b0c; /* Matches your brand orange */
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.footer-logo-caption {
+  font-size: 0.9rem;
+  color: #8b949e; /* Elegant muted gray */
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 5px;
+  letter-spacing: 0.3px;
+}
+
+/* ==========================================
+   Column 2: Our Menu Links
+   ========================================== */
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-menu h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #df6b0c; /* Accent Orange */
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.footer-menu p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #c9d1d9;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+  width: fit-content;
+}
+
+.footer-menu p:hover {
+  color: #ffffff;
+  transform: translateX(4px); /* Modern, soft hover pull */
+}
+
+/* ==========================================
+   Column 3: About Details & Contact Block
+   ========================================== */
 .about-details {
   display: flex;
-  justify-content: space-around;
-  text-align: center;
-  margin-top: 40px;
-  padding: 40px 0;
-  border-radius: 20px;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.about-details h5 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #eeeeee;
+/* "Contact Us" Main header inside block */
+.about-details > .footer-info-block:first-child p:first-child {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #df6b0c;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.footer-info-block h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Icon style to pop with brand color */
+.footer-info-block h5 i {
+  color: #df6b0c;
+  font-size: 0.9rem;
+}
+
+.footer-info-block span {
+  font-size: 0.95rem;
+  color: #8b949e; /* Soft contrast */
+  transition: color 0.3s ease;
+}
+
+/* Style normal span resets inside your app from clashing */
+.footer-info-block span {
+  color: #8b949e !important;
+}
+.social-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.social-links a {
+  color: #8b949e; /* Muted gray by default */
+  font-size: 1.4rem; /* Makes the icons a great readable size */
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Elegant brand interaction on hover */
+.social-links a:hover {
+  color: #df6b0c; /* Turns your signature Crab Boutique orange */
+  transform: translateY(-3px); /* Smooth slight lift up */
+}
+/* ==========================================
+   Mobile Responsive Adjustments
+   ========================================== */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* Stacks to single column */
+    gap: 40px;
+    text-align: left;
+  }
+
+  .footer-logo-caption {
+    max-width: 100%;
+  }
+
+  footer {
+    padding: 60px 5% 30px;
+  }
+}
+.footer-logo-caption {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem; /* Slightly smaller for secondary text */
+  color: #a0aec0; /* Elegant, soft warm-gray that reads well on dark bg */
+  line-height: 1.6; /* Gives the sentences breathing room */
+  max-width: 320px; /* Prevents the text from stretching too wide */
+  margin: 15px 0 25px 0; /* Adds space around the caption */
+  letter-spacing: 0.3px; /* Slight luxury spacing */
+  font-weight: 400;
 }
 
 /*HEARDER STYLING*/
